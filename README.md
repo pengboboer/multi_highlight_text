@@ -6,10 +6,10 @@ Used to achieve multiple styles of text highlighting, including cross highlighti
 ### Example
 
 #### Simple display
-<img src="./demo_simple.png" width=600 />
+<img src="https://raw.githubusercontent.com/pengboboer/multi_highlight_text/master/demo_simple.png" width=600 />
 
 #### Content error correction display
-<img src="./demo_correct.png" width=600 />
+<img src="https://raw.githubusercontent.com/pengboboer/multi_highlight_text/master/demo_correct.png" width=600 />
 
 ### Features
 * multiple highlight styles
