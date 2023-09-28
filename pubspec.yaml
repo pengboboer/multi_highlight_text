@@ -1,6 +1,6 @@
 name: multi_highlight_text
 description: Used to achieve multiple styles of text highlighting, including cross highlighting
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/pengboboer/multi_highlight_text
 
 environment:
