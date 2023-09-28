@@ -1,39 +1,73 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+juejin：https://juejin.cn/post/7226641471946948667
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+# multi_highlight_text
+Used to achieve multiple styles of text highlighting, including cross highlighting
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+### Example
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+#### Simple display
+<img src="./demo_simple.png" width=600 />
 
-## Features
+#### Content error correction display
+<img src="./demo_correct.png" width=600 />
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+### Features
+* multiple highlight styles
+* highlight style crossing
+* custom cross style
+* supports both words and positions
+* custom decoration of highlight text
 
-## Getting started
+### Usage
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+#### Simple
 ```
+MultiHighLightText(
+    text: chText,
+    textStyle: _textStyle,
+    highlights: [
+      HighlightItem(
+          text: "xxx",
+          textStyle: _textStyle.copyWith(color: Colors.green)),
+      HighlightItem(
+          text: "xxx",
+          textStyle: _textStyle.copyWith(color: Colors.yellow)),
+      HighlightItem(
+          range: const TextRange(start: 0, end: 1),
+          textStyle: _textStyle.copyWith(color: Colors.red)),
+    ],
+)
+```
+#### Custom
+```
+MultiHighLightText(
+    text: chText,
+    textStyle: _textStyle,
+    highlights: [
+      HighlightItem(
+          text: "xxx",
+          textStyle: _textStyle.copyWith(color: Colors.green)),
+      HighlightItem(
+          text: "xxx",
+          textStyle: _textStyle.copyWith(color: Colors.yellow)),
+      HighlightItem(
+          range: const TextRange(start: 0, end: 1),
+          textStyle: _textStyle.copyWith(color: Colors.red)),
+    ],
+    onMixStyleBuilder: _onMixCorrectErrorTextStyleBuilder, // custom cross style
+    onDecorateTextSpanBuilder: _onDecorateBuilder, // decorate the collection of the final textspan
+)
+```
+### Existing providers 
+| name     | description                                   |
+| ------------ | ---------------------------------|
+| text          | The text you want to show                    |
+| textStyle | The text style |
+| highlights | List with the word you need to highlight |
+| onMixStyleBuilder | The builder of custom cross highlight style |
+| onDecorateTextSpanBuilder | The builder of decorate the textSpans |
 
-## Additional information
+### Other
+If it helps you, please give me a star, thank you.
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+Currently, the library supports the above functions. If you have other requirements or bugs, please raise an issue and I will try our best to help everyone solve it.
